@@ -17,25 +17,31 @@ namespace ECommerce.Catalog.Services.CategoryServices
 			_categoryCollection = mongoDatabase.GetCollection<Category>(settings.CategoryCollectionName);
 			_mapper = mapper;
 		}
-		public Task<List<ResultCategoryDto>> GetAllAsync()
+		public async Task<List<ResultCategoryDto>> GetAllAsync()
 		{
-			throw new NotImplementedException();
+			var values = await _categoryCollection.Find(x => true).ToListAsync();
+			return _mapper.Map<List<ResultCategoryDto>>(values);
 		}
-		public Task<ResultCategoryDto> GetByIdAsync(string id)
+		public async Task<ResultCategoryDto> GetByIdAsync(string id)
 		{
-			throw new NotImplementedException();
+			var value = await _categoryCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+			return _mapper.Map<ResultCategoryDto>(value);
 		}
-		public Task CreateAsync(CreateCategoryDto entity)
+		public async Task CreateAsync(CreateCategoryDto createCategoryDto)
 		{
-			throw new NotImplementedException();
+			var value = _mapper.Map<Category>(createCategoryDto);
+			await _categoryCollection.InsertOneAsync(value);
+
 		}
-		public Task UpdateAsync(UpdateCategoryDto entity)
+		public async Task UpdateAsync(UpdateCategoryDto updateCategoryDto)
 		{
-			throw new NotImplementedException();
+			var value = _mapper.Map<Category>(updateCategoryDto);
+			await _categoryCollection.FindOneAndReplaceAsync(x => x.Id == updateCategoryDto.Id, value);
+
 		}
-		public Task DeleteAsync(string id)
+		public async Task DeleteAsync(string id)
 		{
-			throw new NotImplementedException();
+			await _categoryCollection.DeleteOneAsync(x => x.Id == id);
 		}
 	}
 }
