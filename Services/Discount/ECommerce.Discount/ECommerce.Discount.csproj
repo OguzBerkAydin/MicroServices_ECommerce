@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Context\ue33gc2w.m2l~" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.151" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.16">
