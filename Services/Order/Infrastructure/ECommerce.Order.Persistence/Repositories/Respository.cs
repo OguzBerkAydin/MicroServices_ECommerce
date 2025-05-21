@@ -1,0 +1,56 @@
+﻿using ECommerce.Order.Application.Interfaces;
+using ECommerce.Order.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ECommerce.Order.Persistence.Repositories
+{
+	public class Respository<T> : IRepository<T> where T : class
+	{
+		private readonly OrderContext _orderContext;
+
+		public Respository(OrderContext orderContext)
+		{
+			_orderContext = orderContext;
+		}
+
+		public async Task AddAsync(T entity)
+		{
+			_orderContext.Set<T>().Add(entity);
+			await _orderContext.SaveChangesAsync();
+		}
+
+		public async Task DeleteAsync(int id)
+		{
+			var entity = await _orderContext.Set<T>().FindAsync(id);
+			_orderContext.Set<T>().Remove(entity);
+			await _orderContext.SaveChangesAsync();
+		}
+
+		public async Task<List<T>> GetAllAsync()
+		{
+			return await _orderContext.Set<T>().ToListAsync();
+		}
+
+		public async Task<List<T>> GetbyFilterAsync(Expression<Func<T, bool>> filter)
+		{
+			return await _orderContext.Set<T>().Where(filter).ToListAsync();
+		}
+
+		public async Task<T> GetByIdAsync(int id)
+		{
+			return await _orderContext.Set<T>().FindAsync(id);
+		}
+
+		public async Task UpdateAsync(T entity)
+		{
+			_orderContext.Set<T>().Update(entity);
+			await _orderContext.SaveChangesAsync();
+		}
+	}
+}
