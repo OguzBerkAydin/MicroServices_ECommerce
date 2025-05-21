@@ -1,6 +1,8 @@
 ﻿namespace ECommerce.Discount.Services
 {
-	public class DiscountService
+	public class DiscountService : IDiscountService
 	{
+		
 	}
+
 }
