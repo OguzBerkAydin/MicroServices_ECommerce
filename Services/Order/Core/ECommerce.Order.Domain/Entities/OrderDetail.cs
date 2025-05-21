@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Order.Domain.Entities
 {
-	internal class OrderDetail
+	public class OrderDetail
 	{
 	}
 }
