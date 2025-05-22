@@ -43,11 +43,13 @@ namespace ECommerce.Order.WebApi.Controllers
 			await _addOrderDetailCommandHandler.Handle(command);
 			return Ok("OrderDetail added successfuly");
 		}
+		[HttpDelete]
 		public async Task<IActionResult> Delete(DeleteOrderDetailCommand command)
 		{
 			await _deleteOrderDetailCommandHandler.Handle(command);
 			return Ok("Order detail deleted successfuly");	
 		}
+		[HttpPut]
 		public async Task<IActionResult> Update(UpdateOrderDetailCommand command)
 		{
 			await _updateOrderDetailCommandHandler.Handle(command);

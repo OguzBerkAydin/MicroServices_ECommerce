@@ -10,9 +10,8 @@ namespace ECommerce.Order.Persistence.Context
 {
 	public class OrderContext : DbContext
 	{
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		public OrderContext(DbContextOptions<OrderContext> options) : base(options)
 		{
-			optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ECommerceOrderDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
 		}
 		public DbSet<Address> Addresses{ get; set; }
 		public DbSet<OrderDetail> OrderDetails{ get; set; }
