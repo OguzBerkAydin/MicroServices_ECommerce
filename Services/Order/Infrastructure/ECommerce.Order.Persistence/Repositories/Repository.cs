@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Order.Persistence.Repositories
 {
-	public class Respository<T> : IRepository<T> where T : class
+	public class Repository<T> : IRepository<T> where T : class
 	{
 		private readonly OrderContext _orderContext;
 
-		public Respository(OrderContext orderContext)
+		public Repository(OrderContext orderContext)
 		{
 			_orderContext = orderContext;
 		}
