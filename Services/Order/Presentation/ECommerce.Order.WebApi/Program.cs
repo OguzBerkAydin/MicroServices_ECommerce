@@ -4,11 +4,19 @@ using ECommerce.Order.Application.Interfaces;
 using ECommerce.Order.Application.Services;
 using ECommerce.Order.Persistence.Context;
 using ECommerce.Order.Persistence.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+	opt.Authority = builder.Configuration["IdentityServerUrl"];
+	opt.Audience = "ResourceOrder";
+	opt.RequireHttpsMetadata = false;
+});
 
 // Add DbContext to the container
 builder.Services.AddDbContext<OrderContext>(options =>
@@ -47,6 +55,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

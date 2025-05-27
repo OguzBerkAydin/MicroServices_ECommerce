@@ -55,7 +55,7 @@ public static class Config
 			ClientName = "ECommerce Visitor User",
 			AllowedGrantTypes = GrantTypes.ClientCredentials,
 			ClientSecrets = {new Secret("ecommercesecret".Sha256())},
-			AllowedScopes = {"CatalogFullPermission"}
+			AllowedScopes = { "DiscountFullPermission" }
 		},
 		//Admin
 		new Client
