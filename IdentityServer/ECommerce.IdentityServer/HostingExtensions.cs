@@ -11,12 +11,14 @@ internal static class HostingExtensions
 {
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
-        builder.Services.AddRazorPages();
+		builder.Services.AddLocalApiAuthentication();
+		builder.Services.AddRazorPages();
 
         builder.Services.AddControllers();
 
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        
 
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -66,6 +68,7 @@ internal static class HostingExtensions
         app.UseStaticFiles();
         app.UseRouting();
         app.UseIdentityServer();
+        app.UseAuthentication();
         app.UseAuthorization();
         
         app.MapRazorPages()

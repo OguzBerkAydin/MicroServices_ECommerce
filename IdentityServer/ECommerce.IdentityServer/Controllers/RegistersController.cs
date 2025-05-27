@@ -1,11 +1,14 @@
 ﻿using ECommerce.IdentityServer.Dtos;
 using ECommerce.IdentityServer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using static Duende.IdentityServer.IdentityServerConstants;
 
 namespace ECommerce.IdentityServer.Controllers
 {
+	[Authorize(LocalApi.PolicyName)]
 	[Route("api/[controller]")]
 	[ApiController]
 	public class RegistersController : ControllerBase
