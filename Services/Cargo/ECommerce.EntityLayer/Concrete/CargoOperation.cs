@@ -1,6 +1,6 @@
 ﻿namespace ECommerce.EntityLayer.Concrete
 {
-	public class CargoOperations
+	public class CargoOperation
 	{
 		public int CargoOperationId { get; set; }
 		public string Barcode { get; set; }
