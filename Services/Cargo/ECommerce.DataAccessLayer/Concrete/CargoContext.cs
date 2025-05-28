@@ -12,10 +12,10 @@ namespace ECommerce.DataAccessLayer.Concrete
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Server=localhost,1441;Database=ECommerceCargoDb;User Id=SA;Password=SqlOguzberk3661.;");
+			optionsBuilder.UseSqlServer("Server=localhost,1441;Database=ECommerceCargoDb;User Id=SA;Password=SqlOguzberk3661.;MultipleActiveResultSets=true;Encrypt=False;TrustServerCertificate=True;");
 		}
 		public DbSet<CargoDetail> CargoDetails { get; set; }
-		public DbSet<CargoOperations> CargoOperations { get; set; }
+		public DbSet<CargoOperation> CargoOperations { get; set; }
 		public DbSet<CargoCustomer> CargoCustomers { get; set; }
 		public DbSet<CargoCompany> CargoCompanies { get; set; }
 
