@@ -19,27 +19,31 @@ namespace ECommerce.DataAccessLayer.Repositories
 
 		public void Add(T entity)
 		{
-			throw new NotImplementedException();
+			_context.Set<T>().Add(entity);
+			_context.SaveChanges();
 		}
 
-		public void Delete(T entity)
+		public void Delete(int id)
 		{
-			var values = _context.Set<T>().Find(id)
+			var value = _context.Set<T>().Find(id);
+			_context.Set<T>().Remove(value);
+			_context.SaveChanges();
 		}
 
 		public List<T> GetAll()
 		{
-			throw new NotImplementedException();
+			return _context.Set<T>().ToList();
 		}
 
 		public T GetById(int id)
 		{
-			throw new NotImplementedException();
+			return _context.Set<T>().Find(id);
 		}
 
 		public void Update(T entity)
 		{
-			throw new NotImplementedException();
+			_context.Set<T>().Update(entity);
+			_context.SaveChanges();
 		}
 	}
 }

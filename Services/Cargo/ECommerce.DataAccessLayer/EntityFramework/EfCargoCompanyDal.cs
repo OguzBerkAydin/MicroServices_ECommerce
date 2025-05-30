@@ -16,5 +16,4 @@ namespace ECommerce.DataAccessLayer.EntityFramework
 		{
 		}
 	}
-
 }
