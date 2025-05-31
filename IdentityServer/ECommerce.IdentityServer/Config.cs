@@ -19,6 +19,10 @@ public static class Config
 		{
 			Scopes = { "OrderFullPermission" }
 		},
+		new ApiResource("ResourceCargo")
+		{
+			Scopes = { "CargoFullPermission" }
+		},
 		new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
 		
 	};
@@ -35,6 +39,7 @@ public static class Config
 		new ApiScope("CatalogFullPermission","Full authority for catalog operations"),
 		new ApiScope("DiscountFullPermission","Full authority for Discount operations"),
 		new ApiScope("OrderFullPermission","Full authority for Order operations"),
+		new ApiScope("CargoFullPermission","Full authority for Cargo operations"),
 		new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
 	};
 
@@ -68,6 +73,7 @@ public static class Config
 				"CatalogFullPermission",
 				"DiscountFullPermission",
 				"OrderFullPermission",
+				"CargoFullPermission",
 				IdentityServerConstants.LocalApi.ScopeName,
 				IdentityServerConstants.StandardScopes.Email,
 				IdentityServerConstants.StandardScopes.OpenId,
