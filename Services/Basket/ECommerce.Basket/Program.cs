@@ -2,9 +2,16 @@ using ECommerce.Basket.LoginServices;
 using ECommerce.Basket.RedisSettings;
 using ECommerce.Basket.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var requireAuthorizePolice = new AuthorizationPolicyBuilder()
+	.RequireAuthenticatedUser()
+	.Build();
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
 	opt.Authority = builder.Configuration["IdentityServerUrl"];
@@ -26,7 +33,10 @@ builder.Services.AddSingleton<RedisService>(sp =>
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(opt =>
+{
+	opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolice));
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -42,6 +52,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
