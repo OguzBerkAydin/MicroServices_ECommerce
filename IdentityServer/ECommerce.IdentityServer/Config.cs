@@ -72,7 +72,7 @@ public static class Config
 		{
 			ClientId = "ECommerceAdminId",
 			ClientName = "ECommerce Admin User",
-			AllowedGrantTypes = GrantTypes.ClientCredentials,
+			AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
 			ClientSecrets = {new Secret("ecommercesecret".Sha256())},
 			AllowedScopes = {
 				"CatalogFullPermission",

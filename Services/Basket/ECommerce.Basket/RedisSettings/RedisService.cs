@@ -13,7 +13,7 @@ namespace ECommerce.Basket.RedisSettings
 
 		private ConnectionMultiplexer _connectionMultiplexer;
 
-		public void Connect() => 
+		public void Connect() =>
 			_connectionMultiplexer = ConnectionMultiplexer.Connect($"{_redisSettings.Host}:{_redisSettings.Port}");
 
 		public IDatabase GetDatabase(int db = 1) =>
