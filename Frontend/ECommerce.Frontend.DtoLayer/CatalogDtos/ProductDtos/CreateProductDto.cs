@@ -14,8 +14,4 @@ namespace ECommerce.Frontend.DtoLayer.CatalogDtos.ProductDtos
 		public decimal Price { get; set; }
 		public string CategoryId { get; set; }
 	}
-	public class ResultProductWithCategoryDto
-	{
-
-	}
 }

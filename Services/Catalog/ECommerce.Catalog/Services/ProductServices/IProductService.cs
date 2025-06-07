@@ -9,5 +9,6 @@ namespace ECommerce.Catalog.Services.ProductServices
 		Task CreateAsync(CreateProductDto createProductDto);
 		Task UpdateAsync(UpdateProductDto updateProductDto);
 		Task DeleteAsync(string id);
+		Task<List<ResultProductWithCategoryDto>> GetProductWithCategoryAsync();
 	}
 }

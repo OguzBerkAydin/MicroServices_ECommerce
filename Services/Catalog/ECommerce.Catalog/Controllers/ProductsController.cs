@@ -55,4 +55,11 @@ public class ProductsController : ControllerBase
 		await _productService.DeleteAsync(id);
 		return Ok(new { message = "Product deleted successfully" });
 	}
+
+	[HttpGet("ProductListWithCategory")]
+	public async Task<IActionResult> ProductListWithCategory()
+	{
+		var values = await _productService.GetProductWithCategoryAsync();
+		return Ok(values);
+	}
 }
