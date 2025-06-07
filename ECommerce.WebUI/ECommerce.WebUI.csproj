@@ -28,4 +28,8 @@
     <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Frontend\ECommerce.Frontend.DtoLayer\ECommerce.Frontend.DtoLayer.csproj" />
+  </ItemGroup>
+
 </Project>
