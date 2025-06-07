@@ -60,7 +60,7 @@ namespace ECommerce.WebUI.Areas.Admin.Controllers
 			return View();
 
 		}
-		[HttpPost]
+		//[HttpPost]
 		public async Task<IActionResult> Delete(string id)
 		{
 			var client = _httpClientFactory.CreateClient();

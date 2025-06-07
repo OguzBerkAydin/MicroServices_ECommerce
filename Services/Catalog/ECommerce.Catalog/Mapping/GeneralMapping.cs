@@ -25,7 +25,13 @@ namespace ECommerce.Catalog.Mapping
 
 			CreateMap<Category, ResultCategoryDto>().ReverseMap();
 			CreateMap<Category, CreateCategoryDto>().ReverseMap();
-			CreateMap<Category, UpdateCategoryDto>().ReverseMap(); 
+			CreateMap<Category, UpdateCategoryDto>().ReverseMap();
+
+			//CreateMap<Product, ResultProductWithCategoryDto>().ReverseMap();
+			CreateMap<Product, ResultProductWithCategoryDto>()
+			.ForMember(dest => dest.CategoryName,
+					  opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : null)).ReverseMap();
+
 		}
 	}
 }

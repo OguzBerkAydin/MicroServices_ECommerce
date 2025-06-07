@@ -1,8 +1,47 @@
-﻿
+﻿@model UpdateProductDto
 @{
     ViewData["Title"] = "Update";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>Update</h1>
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Update Category</h4>
+                <div class="bs-example" data-example-id="bordered-table">
+
+                    <form method="post">
+                        <input type="hidden" readonly class="form-control" asp-for="Id" />
+                        <br />
+                        <label>Name</label>
+                        <input type="text" class="form-control" asp-for="Name" />
+                        <br />
+                        <label>Price</label>
+                        <input type="text" class="form-control" asp-for="Price" />
+                        <br />
+                        <label>Image</label>
+                        <input type="text" class="form-control" asp-for="ImageUri" />
+                        <br />
+                        <label>Category</label>
+                        <select class="form-control" asp-for="CategoryId">
+                            <option value="">Select a category</option>
+                            @foreach (var category in ViewBag.Categories)
+                            {
+                                <option value="@category.Id" selected="@(category.Id == Model.CategoryId ? "selected" : null)">@category.Name</option>
+                            }
+                        </select>
+                        <br />
+                        <label>Description</label>
+                        <input type="text" class="form-control" asp-for="Description" />
+                        <br />
+                        <button class="btn btn-primary">Update</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
