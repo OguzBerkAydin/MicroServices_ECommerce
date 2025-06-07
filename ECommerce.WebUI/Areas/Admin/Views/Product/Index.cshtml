@@ -1,11 +1,9 @@
-﻿@model List<ResultCategoryDto>
-
+﻿@model List<ResultProductDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
     int count = 0;
 }
-
 
 <section class="content container-fluid">
     <div class="row">
@@ -16,7 +14,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>First Name</th>
+                                <th>Name</th>
+                                <th>Price</th>
                                 <th>Delete</th>
                                 <th>Update</th>
                             </tr>
@@ -28,14 +27,15 @@
                                 <tr>
                                     <th scope="row">@count</th>
                                     <td>@item.Name</td>
-                                    <td><a href="/Admin/Category/Delete/@item.Id" class="btn btn-danger">Delete</a> </td>
-                                    <td><a href="/Admin/Category/Update/@item.Id" class="btn btn-success">Update</a> </td>
+                                    <td>@item.Price</td>
+                                    <td><a href="/Admin/Product/Delete/@item.Id" class="btn btn-danger">Delete</a> </td>
+                                    <td><a href="/Admin/Product/Update/@item.Id" class="btn btn-success">Update</a> </td>
                                 </tr>
                             }
 
                         </tbody>
                     </table>
-                    <a href="/Admin/Category/Add" class="btn btn-primary">New Category</a> 
+                    <a href="/Admin/Product/Add" class="btn btn-primary">New Product</a>
 
                 </div>
             </div>
@@ -43,4 +43,5 @@
 
     </div>
 </section>
+
 
