@@ -1,0 +1,40 @@
+﻿@model CreateFeatureSliderDto
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>New Slider</h4>
+                <div class="bs-example" data-example-id="bordered-table">
+                    <form method="post">
+                        <label>Title</label>
+                        <input type="text" class="form-control" asp-for="Title" />
+                        <br /> 
+
+                        <label>Description</label>
+                        <input type="text" class="form-control" asp-for="Description" />
+                        <br />
+
+                        <label>Image URI</label>
+                        <input type="text" class="form-control" asp-for="ImageUri" />
+                        <br />
+
+                        <label>Status</label>
+                        <select class="form-control" asp-for="Status">
+                            <option value="true">Aktif</option>
+                            <option value="false">Pasif</option>
+                        </select>
+                        <button class="btn btn-primary">Add</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

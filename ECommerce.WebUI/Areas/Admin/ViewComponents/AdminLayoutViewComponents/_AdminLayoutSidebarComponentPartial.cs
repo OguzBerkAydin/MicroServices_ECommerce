@@ -2,7 +2,7 @@
 
 namespace ECommerce.WebUI.Areas.Admin.ViewComponents.AdminLayoutViewComponents
 {
-	public class _AdminLayoutHeadComponentPartial : ViewComponent
+	public class _AdminLayoutSidebarComponentPartial : ViewComponent
 	{
 		public IViewComponentResult Invoke()
 		{
