@@ -1,5 +1,4 @@
 using ECommerce.Catalog.Extensions;
-using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);

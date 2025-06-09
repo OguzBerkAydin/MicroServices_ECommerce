@@ -1,15 +1,16 @@
-﻿using ECommerce.Frontend.DtoLayer.CatalogDtos.FeatureDtos;
+﻿using ECommerce.Frontend.DtoLayer.CatalogDtos.FeatureSliderDtos;
+using ECommerce.Frontend.DtoLayer.CatalogDtos.SpecialOfferDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace ECommerce.WebUI.ViewComponents.DefaultViewComponents
 {
-	public class _FeatureDefaultComponentPartial : ViewComponent
+	public class _SpecialOfferComponentPartial : ViewComponent
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
-		private readonly string _apiBaseUrl = "https://localhost:44302/api/Features";
+		private readonly string _apiBaseUrl = "https://localhost:44302/api/SpecialOffers";
 
-		public _FeatureDefaultComponentPartial(IHttpClientFactory httpClientFactory)
+		public _SpecialOfferComponentPartial(IHttpClientFactory httpClientFactory)
 		{
 			_httpClientFactory = httpClientFactory;
 		}
@@ -20,10 +21,11 @@ namespace ECommerce.WebUI.ViewComponents.DefaultViewComponents
 			var responseMessage = await client.GetAsync(_apiBaseUrl);
 			if (responseMessage.IsSuccessStatusCode)
 			{
-				var jsonData = await responseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<List<ResultFeatureDto>>(jsonData);
 
+				var jsonData = await responseMessage.Content.ReadAsStringAsync();
+				var values = JsonConvert.DeserializeObject<List<ResultSpecialOfferDto>>(jsonData);
 				return View(values);
+
 			}
 
 			return View();

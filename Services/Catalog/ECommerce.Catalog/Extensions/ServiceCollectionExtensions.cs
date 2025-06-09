@@ -1,4 +1,5 @@
 ﻿using ECommerce.Catalog.Services.CategoryServices;
+using ECommerce.Catalog.Services.FeatureServices;
 using ECommerce.Catalog.Services.FeatureSliderServices;
 using ECommerce.Catalog.Services.ProductDetailServices;
 using ECommerce.Catalog.Services.ProductImageServices;
@@ -22,6 +23,7 @@ namespace ECommerce.Catalog.Extensions
 			services.AddScoped<IProductImageService, ProductImageService>();
 			services.AddScoped<IFeatureSliderService, FeatureSliderService>();
 			services.AddScoped<ISpecialOfferService, SpecialOfferService>();
+			services.AddScoped<IFeatureService, FeatureService>();
 
 			return services;
 		}
