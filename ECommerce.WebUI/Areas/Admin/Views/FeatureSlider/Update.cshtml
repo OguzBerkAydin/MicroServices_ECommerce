@@ -1,0 +1,40 @@
+﻿@model UpdateFeatureSliderDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Update Category</h4>
+                <div class="bs-example" data-example-id="bordered-table">
+
+                    <form method="post">
+                        <input type="hidden" readonly class="form-control" asp-for="Id" />
+                        <br />
+                        <label>Title</label>
+                        <input type="text" class="form-control" asp-for="Title" />
+                        <br />
+                        <label>Description</label>
+                        <input type="text" class="form-control" asp-for="Description" />
+                        <br />
+                        <label>Image</label>
+                        <input type="text" class="form-control" asp-for="ImageUri" />
+                        <br />
+                        <label>Status</label>
+                        <select class="form-control" asp-for="Status">
+                            <option value="true">Aktif</option>
+                            <option value="false">Pasif</option>
+                        </select>
+                        <button class="btn btn-primary">Update</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
