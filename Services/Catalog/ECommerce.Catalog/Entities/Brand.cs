@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ECommerce.Catalog.Entities
 {
-	public class Category
+	public class Brand
 	{
 		[BsonId]
 		[BsonRepresentation(BsonType.ObjectId)]
@@ -11,5 +11,4 @@ namespace ECommerce.Catalog.Entities
 		public string Name { get; set; }
 		public string ImageUri { get; set; }
 	}
-
 }

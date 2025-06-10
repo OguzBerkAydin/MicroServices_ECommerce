@@ -1,4 +1,4 @@
-﻿@model List<ResultCategoryDto>
+﻿@model List<ResultOfferDiscountDto>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,7 +16,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
+                                <th>Title</th>
+                                <th>Subtitle</th>
+                                <th>Button Name</th>
                                 <th>Image</th>
                                 <th>Delete</th>
                                 <th>Update</th>
@@ -28,16 +30,18 @@
                                 count++;
                                 <tr>
                                     <th scope="row">@count</th>
-                                    <td>@item.Name</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.SubTitle</td>
+                                    <td>@item.ButtonName</td>
                                     <td>@item.ImageUri</td>
-                                    <td><a href="/Admin/Category/Delete/@item.Id" class="btn btn-danger">Delete</a> </td>
-                                    <td><a href="/Admin/Category/Update/@item.Id" class="btn btn-success">Update</a> </td>
+                                    <td><a href="/Admin/OfferDiscount/Delete/@item.Id" class="btn btn-danger">Delete</a> </td>
+                                    <td><a href="/Admin/OfferDiscount/Update/@item.Id" class="btn btn-success">Update</a> </td>
                                 </tr>
                             }
 
                         </tbody>
                     </table>
-                    <a href="/Admin/Category/Add" class="btn btn-primary">New Category</a> 
+                    <a href="/Admin/OfferDiscount/Add" class="btn btn-primary">New Offer Discount</a>
 
                 </div>
             </div>

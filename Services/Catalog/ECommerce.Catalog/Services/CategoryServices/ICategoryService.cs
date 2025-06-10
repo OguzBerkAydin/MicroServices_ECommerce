@@ -1,5 +1,4 @@
 ﻿using ECommerce.Catalog.Dtos.CategoryDtos;
-using ECommerce.Catalog.Entities;
 
 namespace ECommerce.Catalog.Services.CategoryServices
 {

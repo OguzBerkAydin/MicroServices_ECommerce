@@ -1,11 +1,14 @@
-﻿using ECommerce.Catalog.Services.CategoryServices;
+﻿using ECommerce.Catalog.Services.BrandServices;
+using ECommerce.Catalog.Services.CategoryServices;
 using ECommerce.Catalog.Services.FeatureServices;
 using ECommerce.Catalog.Services.FeatureSliderServices;
+using ECommerce.Catalog.Services.OfferDiscountServices;
 using ECommerce.Catalog.Services.ProductDetailServices;
 using ECommerce.Catalog.Services.ProductImageServices;
 using ECommerce.Catalog.Services.ProductServices;
 using ECommerce.Catalog.Services.SpecialOfferServices;
 using ECommerce.Catalog.Settings;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.Extensions.Options;
 
 namespace ECommerce.Catalog.Extensions
@@ -24,6 +27,8 @@ namespace ECommerce.Catalog.Extensions
 			services.AddScoped<IFeatureSliderService, FeatureSliderService>();
 			services.AddScoped<ISpecialOfferService, SpecialOfferService>();
 			services.AddScoped<IFeatureService, FeatureService>();
+			services.AddScoped<IOfferDiscountService, OfferDiscountService>();
+			services.AddScoped<IBrandService, BrandService>();
 
 			return services;
 		}
