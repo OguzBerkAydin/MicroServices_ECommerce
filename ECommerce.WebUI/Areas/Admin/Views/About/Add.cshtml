@@ -1,4 +1,4 @@
-﻿@model CreateOfferDiscountDto
+﻿@model CreateAboutDto
 
 @{
     ViewData["Title"] = "Add";
@@ -9,26 +9,28 @@
     <div class="row">
         <div class="col-md-12">
             <div class="chart-box">
-                <h4>New Offer Discount</h4>
+                <h4>New Phone</h4>
                 <div class="bs-example" data-example-id="bordered-table">
                     <form method="post">
-                        <label>Title</label>
-                        <input type="text" class="form-control" asp-for="Title" />
+
+                        <label>Description</label>
+                        <input type="text" class="form-control" asp-for="Description" />
                         <br />
 
-                        <label>SubTitle</label>
-                        <input type="text" class="form-control" asp-for="SubTitle" />
+                        <label>Address</label>
+                        <input type="text" class="form-control" asp-for="Address" />
                         <br />
 
-                        <label>Button Name</label>
-                        <input type="text" class="form-control" asp-for="ButtonName" />
+                        <label>Email</label>
+                        <input type="text" class="form-control" asp-for="Email" />
                         <br />
 
-                        <label>Image URI</label>
-                        <input type="text" class="form-control" asp-for="ImageUri" />
+                        <label>Phone</label>
+                        <input type="text" class="form-control" asp-for="Phone" />
                         <br />
 
                         <button class="btn btn-primary">Add</button>
+
                     </form>
 
                 </div>
