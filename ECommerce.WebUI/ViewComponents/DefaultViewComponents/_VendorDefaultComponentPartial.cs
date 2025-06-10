@@ -24,6 +24,7 @@ namespace ECommerce.WebUI.ViewComponents.DefaultViewComponents
 				var values = JsonConvert.DeserializeObject<List<ResultBrandDto>>(jsonData);
 
 				return View(values);
+
 			}
 
 			return View();
