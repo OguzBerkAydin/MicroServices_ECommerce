@@ -1,25 +1,28 @@
-﻿namespace ECommerce.Frontend.DtoLayer.CatalogDtos.SpecialOfferDtos
+﻿namespace ECommerce.Catalog.Dtos.OfferDiscountDtos
 {
-	public class CreateSpecialOfferDto
+	public class CreateOfferDiscountDto
 	{
 		public string Title { get; set; }
 		public string SubTitle { get; set; }
 		public string ImageUri { get; set; }
+		public string ButtonName { get; set; }
 	}
 
-	public class UpdateSpecialOfferDto
+	public class UpdateOfferDiscountDto
 	{
 		public string Id { get; set; }
 		public string Title { get; set; }
 		public string SubTitle { get; set; }
 		public string ImageUri { get; set; }
+		public string ButtonName { get; set; }
 	}
 
-	public class ResultSpecialOfferDto
+	public class ResultOfferDiscountDto
 	{
 		public string Id { get; set; }
 		public string Title { get; set; }
 		public string SubTitle { get; set; }
 		public string ImageUri { get; set; }
+		public string ButtonName { get; set; }
 	}
 }

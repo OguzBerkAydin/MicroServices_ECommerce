@@ -1,4 +1,4 @@
-﻿@model UpdateCategoryDto
+﻿@model UpdateOfferDiscountDto
 @{
     ViewData["Title"] = "Update";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
@@ -8,15 +8,23 @@
     <div class="row">
         <div class="col-md-12">
             <div class="chart-box">
-                <h4>Update Category</h4>
+                <h4>Update Feature</h4>
                 <div class="bs-example" data-example-id="bordered-table">
 
                     <form method="post">
                         <input type="hidden" readonly class="form-control" asp-for="Id" />
                         <br />
-                        <label>Name</label>
-                        <input type="text" class="form-control" asp-for="Name" />
+                        <label>Title</label>
+                        <input type="text" class="form-control" asp-for="Title" />
                         <br />
+                        <label>SubTitle</label>
+                        <input type="text" class="form-control" asp-for="SubTitle" />
+                        <br />
+
+                        <label>Button Name</label>
+                        <input type="text" class="form-control" asp-for="ButtonName" />
+                        <br />
+
                         <label>Image</label>
                         <input type="text" class="form-control" asp-for="ImageUri" />
                         <br />
