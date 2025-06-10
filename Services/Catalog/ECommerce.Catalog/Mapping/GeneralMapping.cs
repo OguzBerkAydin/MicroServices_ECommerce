@@ -8,6 +8,7 @@ using ECommerce.Catalog.Dtos.ProductDtos;
 using ECommerce.Catalog.Dtos.ProductImageDtos;
 using ECommerce.Catalog.Dtos.SpecialOfferDtos;
 using ECommerce.Catalog.Dtos.BrandDtos;
+using ECommerce.Catalog.Dtos.AboutDtos;
 using ECommerce.Catalog.Entities;
 
 namespace ECommerce.Catalog.Mapping
@@ -55,6 +56,10 @@ namespace ECommerce.Catalog.Mapping
 			CreateMap<Brand, ResultBrandDto>().ReverseMap();
 			CreateMap<Brand, CreateBrandDto>().ReverseMap();
 			CreateMap<Brand, UpdateBrandDto>().ReverseMap();
+
+			CreateMap<About, ResultAboutDto>().ReverseMap();
+			CreateMap<About, CreateAboutDto>().ReverseMap();
+			CreateMap<About, UpdateAboutDto>().ReverseMap();
 		}
 	}
 }
