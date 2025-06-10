@@ -21,7 +21,7 @@ namespace ECommerce.WebUI.ViewComponents.DefaultViewComponents
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<List<ResultBrandDto>>(jsonData);
+				var values = JsonConvert.DeserializeObject<List<ResultBrandDto>>(jsonData); 
 
 				return View(values);
 			}
