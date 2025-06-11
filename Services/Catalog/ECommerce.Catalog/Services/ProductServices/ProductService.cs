@@ -44,13 +44,39 @@ namespace ECommerce.Catalog.Services.ProductServices
 
 		public async Task<List<ResultProductWithCategoryDto>> GetProductWithCategoryAsync()
 		{
-			var values = await _productCollection.Find(x => true).ToListAsync();
-			foreach (var item in values)
+			var products = await _productCollection.Find(_ => true).ToListAsync();
+			var categoryIds = products.Select(p => p.CategoryId).Distinct().ToList();
+			var categories = await _categoryCollection.Find(c => categoryIds.Contains(c.Id)).ToListAsync();
+			var categoryDict = categories.ToDictionary(c => c.Id, c => c);
+
+			foreach (var product in products)
 			{
-				item.Category = await _categoryCollection.Find<Category>(x => x.Id == item.CategoryId).FirstOrDefaultAsync();
+				if (categoryDict.TryGetValue(product.CategoryId, out var category))
+				{
+					product.Category = category;
+				}
+			}
+
+			return _mapper.Map<List<ResultProductWithCategoryDto>>(products);
+
+		}
+
+		public async Task<List<ResultProductWithCategoryDto>> GetProductWithCategoryByCategoryIdAsync(string id)
+		{
+			var values = await _productCollection.Find(x=>x.CategoryId == id).ToListAsync();
+
+			var categoryIds = values.Select(p => p.CategoryId).Distinct().ToList();
+			var categories = await _categoryCollection.Find(c => categoryIds.Contains(c.Id)).ToListAsync();
+			var categoryDict = categories.ToDictionary(c => c.Id, c => c);
+
+			foreach (var product in values)
+			{
+				if (categoryDict.TryGetValue(product.CategoryId, out var category))
+				{
+					product.Category = category;
+				}
 			}
 			return _mapper.Map<List<ResultProductWithCategoryDto>>(values);
-
 		}
 
 		public async Task UpdateAsync(UpdateProductDto updateProductDto)
