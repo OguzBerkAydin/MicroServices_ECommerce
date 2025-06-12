@@ -6,7 +6,7 @@ namespace ECommerce.WebUI.Controllers
 	{
 		public IActionResult Index(string id)
 		{
-			ViewBag.CategoryId = id;
+			ViewBag.CategoryId = id; 
 			return View();
 		}
 		public IActionResult ProductDetail()
