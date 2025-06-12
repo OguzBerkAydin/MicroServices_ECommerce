@@ -14,20 +14,24 @@ namespace ECommerce.WebUI.ViewComponents.ProductListViewComponents
 			_httpClientFactory = httpClientFactory;
 		}
 
-		public async Task<IViewComponentResult> InvokeAsync(string id)
+		public async Task<IViewComponentResult> InvokeAsync(string id = null)
 		{
 			var client = _httpClientFactory.CreateClient();
-			var requestUrl = $"{_apiBaseUrl}/ProductListWithCategoryByCategoryId?id={id}";
-			var responseMessage = await client.GetAsync(requestUrl);
+			HttpResponseMessage responseMessage;
+
+			if (id == null)
+				responseMessage = await client.GetAsync(_apiBaseUrl);
+			else
+				responseMessage = await client.GetAsync($"{_apiBaseUrl}/ProductListWithCategoryByCategoryId?id={id}");
+
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responseMessage.Content.ReadAsStringAsync();
 				var values = JsonConvert.DeserializeObject<List<ResultProductWithCategoryDto>>(jsonData);
-
 				return View(values);
 			}
 
-			return View();
+			return View(new List<ResultProductWithCategoryDto>());
 		}
 	}
 }
