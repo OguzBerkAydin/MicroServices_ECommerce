@@ -9,8 +9,9 @@ namespace ECommerce.WebUI.Controllers
 			ViewBag.CategoryId = id; 
 			return View();
 		}
-		public IActionResult ProductDetail()
+		public IActionResult ProductDetail(string id)
 		{
+			ViewBag.ProductId = id;
 			return View();
 		}
 	}
