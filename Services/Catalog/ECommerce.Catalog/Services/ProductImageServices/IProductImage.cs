@@ -6,6 +6,7 @@ namespace ECommerce.Catalog.Services.ProductImageServices
 	{
 		Task<List<ResultProductImageDto>> GetAllAsync();
 		Task<ResultProductImageDto> GetByIdAsync(string id);
+		Task<UpdateProductImageDto> GetByIdImageAsync(string id);
 		Task CreateAsync(CreateProductImageDto createProductImageDto);
 		Task UpdateAsync(UpdateProductImageDto updateProductImageDto);
 		Task DeleteAsync(string id);

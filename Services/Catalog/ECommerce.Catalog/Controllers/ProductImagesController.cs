@@ -32,6 +32,14 @@ namespace ECommerce.Catalog.Controllers
 				return NotFound();
 			return Ok(result);
 		}
+		[HttpGet("ProductId/{id}")]
+		public async Task<ActionResult> GetByIdImage(string id)
+		{
+			var result = await _productImageService.GetByIdImageAsync(id);
+			if (result == null)
+				return NotFound();
+			return Ok(result);
+		}
 
 		[HttpPost]
 		public async Task<ActionResult> Add(CreateProductImageDto createProductImageDto)

@@ -42,5 +42,10 @@ namespace ECommerce.Catalog.Services.ProductImageServices
 			await _productImageCollection.DeleteOneAsync(x => x.Id == id);
 		}
 
+		public async Task<UpdateProductImageDto> GetByIdImageAsync(string id)
+		{
+			var values = await _productImageCollection.Find(x => x.ProductId == id).FirstOrDefaultAsync();
+			return _mapper.Map<UpdateProductImageDto>(values);
+		}
 	}
 }
