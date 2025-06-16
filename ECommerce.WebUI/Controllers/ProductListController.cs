@@ -11,8 +11,12 @@ namespace ECommerce.WebUI.Controllers
 		}
 		public IActionResult ProductDetail(string id)
 		{
-			ViewBag.ProductId = id;
-			return View();
+			if (string.IsNullOrEmpty(id))
+			{
+				return NotFound();
+			}
+
+			return View(model: id);
 		}
 	}
 }

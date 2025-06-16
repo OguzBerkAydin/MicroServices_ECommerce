@@ -37,6 +37,14 @@ namespace ECommerce.Catalog.Services.ProductDetailServices
 			return _mapper.Map<ResultProductDetailDto>(value);
 
 		}
+
+		public async Task<ResultProductDetailDto> GetByProductIdAsync(string id)
+		{
+			
+			var value = await _productDetailCollection.Find(x => x.ProductId == id).FirstOrDefaultAsync();
+			return _mapper.Map<ResultProductDetailDto>(value);
+		}
+
 		public async Task UpdateAsync(UpdateProductDetailDto updateProductDetailDto)
 		{
 			var value = _mapper.Map<ProductDetail>(updateProductDetailDto);

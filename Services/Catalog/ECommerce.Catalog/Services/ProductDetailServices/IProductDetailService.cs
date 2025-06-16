@@ -6,6 +6,7 @@ namespace ECommerce.Catalog.Services.ProductDetailServices
 	{
 		Task<List<ResultProductDetailDto>> GetAllAsync();
 		Task<ResultProductDetailDto> GetByIdAsync(string id);
+		Task<ResultProductDetailDto> GetByProductIdAsync(string id);
 		Task CreateAsync(CreateProductDetailDto createProductDetailDto);
 		Task UpdateAsync(UpdateProductDetailDto updateProductDetailDto);
 		Task DeleteAsync(string id);
