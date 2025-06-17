@@ -9,7 +9,7 @@
 		public int Rate { get; set; }
 		public bool Status { get; set; }
 		//public string UserId { get; set; }
-		//public string ProductId { get; set; }
+		public string ProductId { get; set; }
 		public string Comment { get; set; }
 		public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
