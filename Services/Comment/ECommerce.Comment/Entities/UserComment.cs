@@ -3,7 +3,7 @@
 	public class UserComment
 	{
 		public int Id { get; set; }
-		public int NameSurname { get; set; }
+		public string NameSurname { get; set; }
 		public string Email { get; set; }
 		public string? ImageUri { get; set; }
 		public int Rate { get; set; }
