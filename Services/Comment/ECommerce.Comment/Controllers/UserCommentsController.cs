@@ -48,5 +48,25 @@ namespace ECommerce.Comment.Controllers
             await _context.SaveChangesAsync();
             return Ok("Comment added successfully");
         }
-    }
+        [HttpPut]
+		public async Task<IActionResult> PutUserComment(UserComment userComment)
+		{
+			_context.UserComments.Update(userComment);
+			await _context.SaveChangesAsync();
+			return Ok("Comment updated successfully");
+		}
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUserComment(int id)
+            {
+            var userComment = await _context.UserComments.FindAsync(id);
+            if (userComment == null)
+            {
+                return NotFound();
+            }
+            _context.UserComments.Remove(userComment);
+            await _context.SaveChangesAsync();
+            return Ok("Comment deleted successfully");
+		}
+
+	}
 }

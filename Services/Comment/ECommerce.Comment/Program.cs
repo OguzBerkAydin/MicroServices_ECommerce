@@ -3,7 +3,7 @@ using ECommerce.Comment.Context;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddTransient<CommentContext>();
+builder.Services.AddDbContext<CommentContext>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
