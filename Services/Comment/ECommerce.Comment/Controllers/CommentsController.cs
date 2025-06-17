@@ -27,9 +27,15 @@ namespace ECommerce.Comment.Controllers
         {
             return await _context.UserComments.ToListAsync();
         }
+		[HttpGet("ByProductId/{id}")]
+		public async Task<IActionResult> GetUserComments(string id)
+		{
+			var comments = await _context.UserComments.Where(c => c.ProductId == id).ToListAsync();
+			return Ok(comments);
+		}
 
-        // GET: api/UserComments/5
-        [HttpGet("{id}")]
+		// GET: api/UserComments/5
+		[HttpGet("{id}")]
         public async Task<ActionResult<UserComment>> GetUserComment(int id)
         {
             var userComment = await _context.UserComments.FindAsync(id);
