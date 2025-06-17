@@ -12,11 +12,11 @@ namespace ECommerce.Comment.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserCommentsController : ControllerBase
+    public class CommentsController : ControllerBase
     {
         private readonly CommentContext _context;
 
-        public UserCommentsController(CommentContext context)
+        public CommentsController(CommentContext context)
         {
             _context = context;
         }
@@ -55,7 +55,7 @@ namespace ECommerce.Comment.Controllers
 			await _context.SaveChangesAsync();
 			return Ok("Comment updated successfully");
 		}
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUserComment(int id)
             {
             var userComment = await _context.UserComments.FindAsync(id);
