@@ -17,10 +17,10 @@
                         <input type="hidden" name="ProductId" value="@Model.ProductId" />
                         <br />
                         <label>Description</label>
-                        <input type="text" class="form-control" asp-for="Description" />
+                        <textarea class="form-control" asp-for="Description" rows="5"></textarea>
                         <br />
                         <label>Info</label>
-                        <input type="text" class="form-control" asp-for="Info" />
+                        <textarea class="form-control" asp-for="Info" rows="5"></textarea>
                         <br />
                         <button class="btn btn-primary">Update</button>
                     </form>
@@ -31,6 +31,8 @@
 
     </div>
 </section>
+
+
 
 
 
