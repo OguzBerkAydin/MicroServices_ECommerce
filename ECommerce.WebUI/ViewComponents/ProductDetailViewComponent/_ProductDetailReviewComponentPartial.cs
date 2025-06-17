@@ -7,7 +7,7 @@ namespace ECommerce.WebUI.ViewComponents.ProductDetailViewComponent
 	public class _ProductDetailReviewComponentPartial : ViewComponent
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
-		private readonly string _apiBaseUrl = "https://localhost:7160/api/Comments";
+		private readonly string _apiBaseUrl = "https://localhost:7160/api/Comments/ByProductId/";
 
 		public _ProductDetailReviewComponentPartial(IHttpClientFactory httpClientFactory)
 		{
@@ -17,11 +17,11 @@ namespace ECommerce.WebUI.ViewComponents.ProductDetailViewComponent
 		public async Task<IViewComponentResult> InvokeAsync(string id)
 		{
 			var client = _httpClientFactory.CreateClient();
-			var responseMessage = await client.GetAsync(_apiBaseUrl + "/" + id);
+			var responseMessage = await client.GetAsync(_apiBaseUrl + id);
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<ResultCommentDto>(jsonData);
+				var values = JsonConvert.DeserializeObject<List<ResultCommentDto>>(jsonData);
 
 				return View(values);
 			}
