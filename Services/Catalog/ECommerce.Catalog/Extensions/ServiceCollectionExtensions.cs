@@ -11,6 +11,7 @@ using ECommerce.Catalog.Services.AboutServices;
 using ECommerce.Catalog.Settings;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.Extensions.Options;
+using ECommerce.Catalog.Services.ContactServices;
 
 namespace ECommerce.Catalog.Extensions
 {
@@ -31,6 +32,7 @@ namespace ECommerce.Catalog.Extensions
 			services.AddScoped<IOfferDiscountService, OfferDiscountService>();
 			services.AddScoped<IBrandService, BrandService>();
 			services.AddScoped<IAboutService, AboutService>();
+			services.AddScoped<IContactService, ContactService>();
 
 			return services;
 		}

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-6">
 
-            <h4 class="mb-4">1 review for "Product Name"</h4>
+            <h4 class="mb-4">@Model.Count review for "Product Name"</h4>
             @foreach (var item in Model)
             {
                 <div class="media mb-4">
@@ -11,11 +11,17 @@
                     <div class="media-body">
                         <h6>@item.NameSurname<small> - <i>@item.CreatedAt.ToShortDateString()</i></small></h6>
                         <div class="text-primary mb-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <i class="far fa-star"></i>
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= item.Rate)
+                                {
+                                    <i class="fas fa-star mr-1"></i>
+                                }
+                                else
+                                {
+                                    <i class="far fa-star mr-1"></i>
+                                }
+                            }
                         </div>
                         <p>@item.Comment</p>
                     </div>
@@ -25,33 +31,32 @@
         <div class="col-md-6">
             <h4 class="mb-4">Leave a review</h4>
             <small>Your email address will not be published. Required fields are marked *</small>
-            <div class="d-flex my-3">
-                <p class="mb-0 mr-2">Your Rating * :</p>
-                <div class="text-primary">
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-            </div>
-            <form>
+            
+            <form asp-controller="ProductList" asp-action="AddComment" method="post">
+                <input type="hidden" name="ProductId" value="@ViewBag.ProductId" />
+
                 <div class="form-group">
                     <label for="message">Your Review *</label>
-                    <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                    <textarea id="message" name="Comment" cols="30" rows="5" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" class="form-control" id="name">
+                    <label for="name">Your Names *</label>
+                    <input type="text" class="form-control" id="name" name="NameSurname">
                 </div>
                 <div class="form-group">
                     <label for="email">Your Email *</label>
-                    <input type="email" class="form-control" id="email">
+                    <input type="email" class="form-control" id="email" name="Email">
                 </div>
+                <div class="form-group">
+                    <label for="rating">Your Rating *</label>
+                    <input type="number" class="form-control" id="rating" name="Rate" min="1" max="5">
+                </div>
+
                 <div class="form-group mb-0">
                     <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
                 </div>
             </form>
+
         </div>
     </div>
 </div>
