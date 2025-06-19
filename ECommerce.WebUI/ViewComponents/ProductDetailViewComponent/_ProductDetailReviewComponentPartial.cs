@@ -16,6 +16,7 @@ namespace ECommerce.WebUI.ViewComponents.ProductDetailViewComponent
 
 		public async Task<IViewComponentResult> InvokeAsync(string id)
 		{
+			ViewBag.ProductId = id;
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.GetAsync(_apiBaseUrl + id);
 			if (responseMessage.IsSuccessStatusCode)

@@ -10,6 +10,7 @@ using ECommerce.Catalog.Dtos.SpecialOfferDtos;
 using ECommerce.Catalog.Dtos.BrandDtos;
 using ECommerce.Catalog.Dtos.AboutDtos;
 using ECommerce.Catalog.Entities;
+using ECommerce.Catalog.Dtos.ContactDtos;
 
 namespace ECommerce.Catalog.Mapping
 {
@@ -60,6 +61,11 @@ namespace ECommerce.Catalog.Mapping
 			CreateMap<About, ResultAboutDto>().ReverseMap();
 			CreateMap<About, CreateAboutDto>().ReverseMap();
 			CreateMap<About, UpdateAboutDto>().ReverseMap();
+
+			
+			CreateMap<Contact, ResultContactDto>().ReverseMap();
+			CreateMap<Contact, CreateContactDto>().ReverseMap();
+			CreateMap<Contact, UpdateContactDto>().ReverseMap();
 		}
 	}
 }
